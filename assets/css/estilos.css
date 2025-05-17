@@ -1,0 +1,644 @@
+/*-----------------------------------*\
+  #-----------------------------------
+  #Estilos nuevos para el portafolio
+  1.particulas
+  2.typografía personalizada
+  3.gráficos para la sección de habilidades
+  4.linea de tiempo mejorada
+  5.integración con GitHub
+  6.formulario de contacto avanzado  
+  #-----------------------------------
+\*-----------------------------------*/
+#particles-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+  pointer-events: none;
+}
+
+/* Ajustar opacidad para diferentes temas */
+html.light-mode #particles-canvas {
+  opacity: 0.4;
+}
+
+html.dark-mode #particles-canvas {
+  opacity: 0.7;
+}
+
+/*-----------------------------------*\
+  #Typografía personalizada
+\*-----------------------------------*/
+
+.typing-container {
+  display: inline-block;
+  position: relative;
+}
+
+.typing-text {
+  display: inline-block;
+  color: var(--accent);
+  font-weight: var(--fw-600);
+  border-right: 3px solid var(--accent);
+  padding-right: 5px;
+  animation: blink-caret 0.75s step-end infinite;
+}
+
+@keyframes blink-caret {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: var(--accent);
+  }
+}
+/*-----------------------------------*\
+  #Gráficos para la sección de habilidades
+\*-----------------------------------*/
+
+.skills-charts-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
+  margin-bottom: 30px;
+}
+
+@media (min-width: 768px) {
+  .skills-charts-container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.chart-container {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: var(--shadow-2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 300px;
+}
+
+.chart-container:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-3);
+}
+
+.chart-title {
+  text-align: center;
+  margin-bottom: 15px;
+  color: var(--text-primary);
+  font-size: var(--fs-5);
+  font-weight: var(--fw-500);
+}
+
+/*-----------------------------------*\
+  #Linea de tiempo mejorada
+\*-----------------------------------*/
+.timeline-enhanced {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px 0;
+}
+
+.timeline-enhanced::after {
+  content: "";
+  position: absolute;
+  width: 4px;
+  background: var(--accent);
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 2px;
+}
+
+@media (max-width: 767px) {
+  .timeline-enhanced::after {
+    left: 30px;
+  }
+}
+
+.timeline-item-enhanced {
+  position: relative;
+  width: 50%;
+  padding: 10px 40px;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.timeline-item-enhanced.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.timeline-item-enhanced:nth-child(odd) {
+  left: 0;
+}
+
+.timeline-item-enhanced:nth-child(even) {
+  left: 50%;
+}
+
+@media (max-width: 767px) {
+  .timeline-item-enhanced {
+    width: 100%;
+    padding-left: 70px;
+    padding-right: 20px;
+  }
+
+  .timeline-item-enhanced:nth-child(even) {
+    left: 0;
+  }
+}
+
+.timeline-item-enhanced::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: var(--bg-primary);
+  border: 4px solid var(--accent);
+  border-radius: 50%;
+  top: 20px;
+  z-index: 1;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.timeline-item-enhanced:hover::after {
+  background: var(--accent);
+  transform: scale(1.2);
+}
+
+.timeline-item-enhanced:nth-child(odd)::after {
+  right: -10px;
+}
+
+.timeline-item-enhanced:nth-child(even)::after {
+  left: -10px;
+}
+
+@media (max-width: 767px) {
+  .timeline-item-enhanced::after {
+    left: 22px;
+  }
+}
+
+.timeline-content {
+  position: relative;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: var(--shadow-2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.timeline-content:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-3);
+}
+
+.timeline-date {
+  display: inline-block;
+  padding: 5px 12px;
+  background: var(--accent);
+  color: white;
+  border-radius: 20px;
+  font-size: var(--fs-7);
+  font-weight: var(--fw-500);
+  margin-bottom: 10px;
+}
+
+.timeline-title {
+  color: var(--text-primary);
+  font-size: var(--fs-4);
+  margin-bottom: 5px;
+}
+
+.timeline-subtitle {
+  color: var(--text-secondary);
+  font-size: var(--fs-6);
+  margin-bottom: 15px;
+}
+
+.timeline-details {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.timeline-details.expanded {
+  margin-top: 15px;
+}
+
+.timeline-details p {
+  color: var(--text-secondary);
+  font-size: var(--fs-6);
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+.timeline-details ul {
+  padding-left: 20px;
+  margin-bottom: 10px;
+}
+
+.timeline-details li {
+  color: var(--text-secondary);
+  font-size: var(--fs-6);
+  line-height: 1.6;
+  margin-bottom: 5px;
+  list-style-type: disc;
+}
+
+.timeline-toggle-btn {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--accent);
+  font-size: var(--fs-7);
+  margin-top: 10px;
+  transition: color 0.3s ease;
+}
+
+.timeline-toggle-btn:hover {
+  color: var(--accent-hover);
+}
+
+.timeline-toggle-btn.active {
+  color: var(--accent-hover);
+}
+/*-----------------------------------*\
+  #Integración con GitHub
+\*-----------------------------------*/
+.github-section {
+  margin-bottom: 35px;
+}
+
+.github-title {
+  margin-bottom: 20px;
+}
+
+.github-repos {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+@media (min-width: 768px) {
+  .github-repos {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .github-repos {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.github-repo {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: var(--shadow-2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.github-repo:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-3);
+}
+
+.repo-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.repo-name-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.repo-name-container ion-icon {
+  color: var(--accent);
+  font-size: 18px;
+}
+
+.repo-name {
+  color: var(--text-primary);
+  font-size: var(--fs-5);
+  font-weight: var(--fw-500);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.repo-visibility {
+  background-color: rgba(var(--accent-rgb), 0.1);
+  color: var(--accent);
+  padding: 3px 8px;
+  border-radius: 12px;
+  font-size: var(--fs-8);
+  font-weight: var(--fw-500);
+}
+
+.repo-description {
+  color: var(--text-secondary);
+  font-size: var(--fs-6);
+  line-height: 1.5;
+  margin-bottom: 15px;
+  flex-grow: 1;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.repo-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 15px;
+}
+
+.repo-language {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--text-secondary);
+  font-size: var(--fs-7);
+}
+
+.language-color {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.repo-stats {
+  display: flex;
+  gap: 15px;
+}
+
+.repo-stat {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--text-secondary);
+  font-size: var(--fs-7);
+}
+
+.repo-updated {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--text-secondary);
+  font-size: var(--fs-7);
+}
+
+.repo-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: var(--accent);
+  color: white;
+  padding: 8px 15px;
+  border-radius: 8px;
+  font-size: var(--fs-7);
+  font-weight: var(--fw-500);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  margin-top: auto;
+}
+
+.repo-link:hover {
+  background-color: var(--accent-hover);
+  transform: translateY(-2px);
+}
+
+.github-profile-link {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-size: var(--fs-6);
+  font-weight: var(--fw-500);
+  border: 1px solid var(--border);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  margin-top: 10px;
+}
+
+.github-profile-link:hover {
+  background-color: var(--bg-primary);
+  transform: translateY(-2px);
+}
+
+.github-profile-link ion-icon {
+  font-size: 20px;
+}
+
+.github-loading,
+.github-error {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  padding: 40px 20px;
+  color: var(--text-secondary);
+  text-align: center;
+}
+
+.github-error ion-icon {
+  font-size: 40px;
+  color: #f44336;
+}
+/*-----------------------------------*\
+  #Formulario de contacto avanzado
+\*-----------------------------------*/
+.contact-form-advanced {
+  margin-bottom: 30px;
+  transition: transform 0.3s ease;
+}
+
+.contact-form-advanced.success {
+  transform: scale(0.98);
+}
+
+.input-container {
+  position: relative;
+  margin-bottom: 25px;
+}
+
+.input-container label {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-secondary);
+  font-size: var(--fs-6);
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+.input-container.textarea label {
+  top: 20px;
+  transform: none;
+}
+
+.input-container.focused label,
+.input-container.has-value label {
+  top: -10px;
+  left: 15px;
+  transform: none;
+  font-size: var(--fs-7);
+  background: var(--bg-secondary);
+  padding: 0 5px;
+  color: var(--accent);
+}
+
+.form-input-advanced {
+  width: 100%;
+  padding: 15px 20px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: transparent;
+  color: var(--text-primary);
+  font-size: var(--fs-6);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-input-advanced:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(var(--accent-rgb), 0.2);
+}
+
+.input-container.invalid .form-input-advanced {
+  border-color: #f44336;
+  box-shadow: 0 0 0 3px rgba(244, 67, 54, 0.2);
+}
+
+.input-error {
+  position: absolute;
+  left: 15px;
+  bottom: -20px;
+  color: #f44336;
+  font-size: var(--fs-7);
+  opacity: 0;
+  transform: translateY(-5px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.input-container.invalid .input-error {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+textarea.form-input-advanced {
+  min-height: 150px;
+  resize: vertical;
+}
+
+.form-btn-advanced {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: var(--accent);
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 12px;
+  font-size: var(--fs-6);
+  font-weight: var(--fw-500);
+  cursor: pointer;
+  overflow: hidden;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.form-btn-advanced::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  transition: left 0.3s ease;
+}
+
+.form-btn-advanced:hover {
+  background-color: var(--accent-hover);
+  transform: translateY(-3px);
+}
+
+.form-btn-advanced:hover::before {
+  left: 100%;
+}
+
+.form-btn-advanced:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.form-btn-advanced:disabled::before {
+  display: none;
+}
+
+.form-btn-advanced.loading {
+  background-color: var(--accent);
+}
+
+.form-btn-advanced .spinner {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: white;
+  animation: spin 0.8s linear infinite;
+}
+
+.contact-form-advanced.success .form-btn-advanced {
+  background-color: #4caf50;
+}
+
+/* Animación de éxito */
+@keyframes success-animation {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.contact-form-advanced.success {
+  animation: success-animation 0.5s ease;
+}
