@@ -71,15 +71,15 @@ function setupSkillsCarousel() {
     { name: "CSS", image: "./assets/images/logos/css.png" },
     { name: "JavaScript", image: "./assets/images/logos/javascript.png" },
     { name: "PHP", image: "./assets/images/logos/php.png" },
-    { name: "BOOTSTRAP", image: "./assets/images/logos/BOOTSTRAP.png" },
-    { name: "LARAVEL", image: "./assets/images/logos/LARAVEL.png" },
-    { name: "NODE JS", image: "./assets/images/logos/NODE.png" },
-    { name: "TAILWIND", image: "./assets/images/logos/TAILWIND.png" },
-    { name: "REACT", image: "./assets/images/logos/REACT.png" },
+    { name: "BOOTSTRAP", image: "./assets/images/logos/bootstrap.png" },
+    { name: "LARAVEL", image: "./assets/images/logos/laravel.png" },
+    { name: "NODE JS", image: "./assets/images/logos/node.png" },
+    { name: "TAILWIND", image: "./assets/images/logos/tailwind.png" },
+    { name: "REACT", image: "./assets/images/logos/react.png" },
     { name: "MYSQL", image: "./assets/images/logos/mysql.png" },
   ];
 
-  // Número de habilidades por slide (responsive)
+  // Número de habilidades por slide (responsive)git 
   let skillsPerSlide = window.innerWidth < 768 ? 4 : 6;
 
   // Calcular el número de slides
