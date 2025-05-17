@@ -2906,7 +2906,8 @@ html.light-mode .parallax-element {
 }
 
 .lightbox-pagination {
-  font-size: 14px;
+  font-size: 16px;
+  display: flex;
   color: var(--text-secondary);
 }
 
